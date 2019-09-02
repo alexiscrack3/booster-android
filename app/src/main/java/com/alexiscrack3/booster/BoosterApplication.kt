@@ -10,5 +10,7 @@ class BoosterApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+
+        BoosterModule.init(this)
     }
 }
