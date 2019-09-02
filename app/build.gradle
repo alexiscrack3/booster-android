@@ -34,7 +34,7 @@ dependencies {
     // lifecycle
     def lifecycle_version = "2.0.0"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    
+
     // networking
     def retrofit_version = "2.6.1"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -56,6 +56,7 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.robolectric:robolectric:4.2.1'
 
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
