@@ -8,7 +8,7 @@ import io.reactivex.disposables.Disposable
 abstract class BoosterActivity : AppCompatActivity() {
     private val disposables = CompositeDisposable()
 
-    protected fun showFragment(layoutId: Int, fragment: Fragment, addToBackStack: Boolean = false) {
+    protected fun showFragment(layoutId: Int, fragment: Fragment, addToBackStack: Boolean = true) {
         val fragmentManager = this.supportFragmentManager
         val tag = fragment::class.java.name
         val fragmentToAdd = fragmentManager.findFragmentByTag(tag) ?: fragment

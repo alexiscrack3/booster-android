@@ -27,5 +27,8 @@ class HomeFragment : BoosterFragment() {
         home_play_button.setOnClickListener {
             router.navigate(BoosterNavigationEvent.VOCABULARY)
         }
+        home_settings_button.setOnClickListener {
+            router.navigate(BoosterNavigationEvent.SETTINGS)
+        }
     }
 }
