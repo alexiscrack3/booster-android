@@ -14,6 +14,12 @@ abstract class BoosterActivity : AppCompatActivity() {
         val fragmentToAdd = fragmentManager.findFragmentByTag(tag) ?: fragment
         fragmentManager
             .beginTransaction()
+            .setCustomAnimations(
+                android.R.animator.fade_in,
+                android.R.animator.fade_out,
+                android.R.animator.fade_in,
+                android.R.animator.fade_out
+            )
             .replace(layoutId, fragmentToAdd, tag)
             .apply {
                 if (addToBackStack) {
