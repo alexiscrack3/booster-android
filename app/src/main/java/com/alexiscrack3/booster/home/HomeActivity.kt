@@ -15,7 +15,11 @@ class HomeActivity : BoosterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        showFragment(R.id.home_frame_layout, HomeFragment())
+
+        supportFragmentManager.addOnBackStackChangedListener {
+            shouldDisplayHomeUp()
+        }
+        shouldDisplayHomeUp()
 
         router.eventObservable.subscribe({
             navigate(it)
@@ -26,9 +30,19 @@ class HomeActivity : BoosterActivity() {
         router.navigate(BoosterNavigationEvent.HOME)
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        supportFragmentManager.popBackStack()
+        return true
+    }
+
+    private fun shouldDisplayHomeUp() {
+        val canGoBack = supportFragmentManager.backStackEntryCount > 0
+        supportActionBar?.setDisplayHomeAsUpEnabled(canGoBack)
+    }
+
     private fun navigate(event: BoosterNavigationEvent) {
         when (event) {
-            BoosterNavigationEvent.HOME -> showFragment(HomeFragment())
+            BoosterNavigationEvent.HOME -> showFragment(HomeFragment(), false)
             BoosterNavigationEvent.SETTINGS -> showFragment(SettingsFragment())
             BoosterNavigationEvent.VOCABULARY -> {
                 val intent = VocabularyActivity.getIntent(this)
@@ -37,7 +51,7 @@ class HomeActivity : BoosterActivity() {
         }
     }
 
-    private fun showFragment(fragment: Fragment) {
-        showFragment(R.id.home_frame_layout, fragment)
+    private fun showFragment(fragment: Fragment, addToBackStack: Boolean = true) {
+        showFragment(R.id.home_container, fragment, addToBackStack)
     }
 }
