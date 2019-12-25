@@ -33,8 +33,8 @@ dependencies {
     // google
     implementation 'com.google.android.material:material:1.1.0-rc01'
 
-    // lifecycle
-    def lifecycle_version = "2.0.0"
+    // lifecycle component
+    def lifecycle_version = '2.1.0'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     // networking
