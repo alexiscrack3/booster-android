@@ -1,9 +1,9 @@
 package com.alexiscrack3.booster
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import timber.log.Timber
 
-class BoosterApplication : Application() {
+class BoosterApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
