@@ -16,13 +16,18 @@ class HomeActivity : BoosterActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        router.eventObservable.subscribe({
-            navigate(it)
-        }, {
-
-        }).autoDispose()
-
         showFragment(HomeFragment(), false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        router.eventObservable
+            .subscribe({
+                navigate(it)
+            }, {
+
+            })
+            .autoDispose()
     }
 
     private fun navigate(event: BoosterNavigationEvent) {

@@ -25,13 +25,18 @@ class VocabularyActivity : BoosterActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vocabulary)
 
-        router.eventObservable.subscribe({
-            navigate(it)
-        }, {
-
-        }).autoDispose()
-
         showFragment(EntriesFragment(), false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        router.eventObservable
+            .subscribe({
+                navigate(it)
+            }, {
+
+            })
+            .autoDispose()
     }
 
     private fun navigate(event: BoosterNavigationEvent) {

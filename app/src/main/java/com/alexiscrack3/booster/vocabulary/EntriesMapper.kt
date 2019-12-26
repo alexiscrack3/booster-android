@@ -7,26 +7,22 @@ import com.google.firebase.firestore.QuerySnapshot
 class EntriesMapper {
 
     fun map(querySnapshot: QuerySnapshot): List<Entry> {
-        return querySnapshot.map {
-            val data = it.data
-            Entry(
-                it.id,
-                data["headword"] as String,
-                data["class"] as String,
-                null, //data["pronunciation"] as String,
-                data["definitions"] as List<String>
-            )
+        return querySnapshot.map { queryDocumentSnapshot ->
+            queryDocumentSnapshot.toEntry()
         }
     }
 
-    fun map(documentSnapshot: DocumentSnapshot): Entry {
-        val data = documentSnapshot.data!!
+    fun map(documentSnapshot: DocumentSnapshot): Entry? {
+        return documentSnapshot.toEntry()
+    }
+
+    private fun DocumentSnapshot.toEntry(): Entry {
         return Entry(
-            documentSnapshot.id,
-            data["headword"] as String,
-            data["class"] as String,
-            null, //data["pronunciation"] as String,
-            data["definitions"] as List<String>
+            this.id,
+            this["headword"] as String,
+            this["class"] as String,
+            null, // this["pronunciation"] as String,
+            this["definitions"] as List<String>
         )
     }
 }

@@ -31,7 +31,11 @@ class EntriesRepository(
                 .get()
                 .addOnSuccessListener { documentSnapshot ->
                     val entry = entriesMapper.map(documentSnapshot)
-                    emitter.onSuccess(entry)
+                    if (entry == null) {
+                        emitter.onComplete()
+                    } else {
+                        emitter.onSuccess(entry)
+                    }
                 }
                 .addOnFailureListener { e ->
                     emitter.onError(e)
