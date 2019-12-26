@@ -16,11 +16,6 @@ class HomeActivity : BoosterActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        supportFragmentManager.addOnBackStackChangedListener {
-            shouldDisplayHomeUp()
-        }
-        shouldDisplayHomeUp()
-
         router.eventObservable.subscribe({
             navigate(it)
         }, {
@@ -28,16 +23,6 @@ class HomeActivity : BoosterActivity() {
         }).autoDispose()
 
         router.navigate(BoosterNavigationEvent.HOME)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        supportFragmentManager.popBackStack()
-        return true
-    }
-
-    private fun shouldDisplayHomeUp() {
-        val canGoBack = supportFragmentManager.backStackEntryCount > 0
-        supportActionBar?.setDisplayHomeAsUpEnabled(canGoBack)
     }
 
     private fun navigate(event: BoosterNavigationEvent) {
