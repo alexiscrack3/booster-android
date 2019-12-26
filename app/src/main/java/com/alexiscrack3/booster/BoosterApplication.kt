@@ -1,6 +1,7 @@
 package com.alexiscrack3.booster
 
 import androidx.multidex.MultiDexApplication
+import com.google.firebase.FirebaseApp
 import timber.log.Timber
 
 class BoosterApplication : MultiDexApplication() {
@@ -12,5 +13,6 @@ class BoosterApplication : MultiDexApplication() {
         }
 
         BoosterModule.init(this)
+        FirebaseApp.initializeApp(this)
     }
 }

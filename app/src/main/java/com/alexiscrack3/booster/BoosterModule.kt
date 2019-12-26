@@ -2,6 +2,7 @@ package com.alexiscrack3.booster
 
 import android.app.Application
 import com.alexiscrack3.booster.vocabulary.vocabularyModule
+import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -23,9 +24,16 @@ object BoosterModule {
                 }
             }
 
+            val firestoreModule = module {
+                single {
+                    FirebaseFirestore.getInstance()
+                }
+            }
+
             val moduleList = listOf(
                 networkModule,
                 routerModule,
+                firestoreModule,
                 vocabularyModule
             )
             modules(moduleList)

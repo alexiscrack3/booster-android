@@ -2,7 +2,7 @@ package com.alexiscrack3.booster.vocabulary
 
 import com.alexiscrack3.booster.StateViewModel
 import com.alexiscrack3.booster.models.Entry
-import com.alexiscrack3.booster.vocabulary.VocabularyViewModel.*
+import com.alexiscrack3.booster.vocabulary.VocabularyViewModel.VocabularyViewState
 import timber.log.Timber
 
 class VocabularyViewModel(
