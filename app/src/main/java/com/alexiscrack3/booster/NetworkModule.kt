@@ -1,6 +1,6 @@
 package com.alexiscrack3.booster
 
-import com.alexiscrack3.booster.vocabulary.VocabularyService
+import com.alexiscrack3.booster.vocabulary.EntriesService
 import com.google.gson.Gson
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
@@ -35,7 +35,7 @@ val networkModule = module {
     }
     factory {
         val retrofit = get<Retrofit>()
-        retrofit.create(VocabularyService::class.java)
+        retrofit.create(EntriesService::class.java)
     }
 }
 

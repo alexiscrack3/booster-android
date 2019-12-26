@@ -22,12 +22,11 @@ class HomeActivity : BoosterActivity() {
 
         }).autoDispose()
 
-        router.navigate(BoosterNavigationEvent.HOME)
+        showFragment(HomeFragment(), false)
     }
 
     private fun navigate(event: BoosterNavigationEvent) {
         when (event) {
-            BoosterNavigationEvent.HOME -> showFragment(HomeFragment(), false)
             BoosterNavigationEvent.SETTINGS -> showFragment(SettingsFragment())
             BoosterNavigationEvent.VOCABULARY -> {
                 val intent = VocabularyActivity.getIntent(this)

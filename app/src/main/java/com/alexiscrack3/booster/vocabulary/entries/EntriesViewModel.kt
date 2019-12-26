@@ -1,20 +1,21 @@
-package com.alexiscrack3.booster.vocabulary
+package com.alexiscrack3.booster.vocabulary.entries
 
 import com.alexiscrack3.booster.StateViewModel
 import com.alexiscrack3.booster.models.Entry
-import com.alexiscrack3.booster.vocabulary.VocabularyViewModel.VocabularyViewState
+import com.alexiscrack3.booster.vocabulary.EntriesRepository
+import com.alexiscrack3.booster.vocabulary.entries.EntriesViewModel.EntriesViewState
 import timber.log.Timber
 
-class VocabularyViewModel(
-    private val vocabularyRepository: VocabularyRepository
-) : StateViewModel<VocabularyViewState>(VocabularyViewState()) {
+class EntriesViewModel(
+    private val entriesRepository: EntriesRepository
+) : StateViewModel<EntriesViewState>(EntriesViewState()) {
 
     init {
         getEntries()
     }
 
     private fun getEntries() {
-        vocabularyRepository.getEntries()
+        entriesRepository.getEntries()
             .subscribe({ entries ->
                 updateState {
                     it.copy(
@@ -31,7 +32,7 @@ class VocabularyViewModel(
             }).autoDispose()
     }
 
-    data class VocabularyViewState(
+    data class EntriesViewState(
         val entries: List<Entry> = emptyList(),
         val entriesError: Boolean = false
     )

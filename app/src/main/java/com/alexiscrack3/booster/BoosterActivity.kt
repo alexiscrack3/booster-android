@@ -18,6 +18,11 @@ abstract class BoosterActivity : AppCompatActivity() {
         shouldDisplayHomeUp()
     }
 
+    override fun onPause() {
+        super.onPause()
+        disposables.clear()
+    }
+
     protected fun showFragment(layoutId: Int, fragment: Fragment, addToBackStack: Boolean = true) {
         val fragmentManager = this.supportFragmentManager
         val tag = fragment::class.java.name

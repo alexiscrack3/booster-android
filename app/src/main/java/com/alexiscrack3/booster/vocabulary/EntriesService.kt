@@ -5,7 +5,7 @@ import com.alexiscrack3.booster.models.Response
 import io.reactivex.Single
 import retrofit2.http.GET
 
-interface VocabularyService {
+interface EntriesService {
 
     @GET("entries")
     fun getEntries(): Single<Response<List<Entry>>>

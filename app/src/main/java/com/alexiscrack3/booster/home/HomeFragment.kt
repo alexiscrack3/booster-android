@@ -24,7 +24,7 @@ class HomeFragment : BoosterFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        home_vocabulary_button.setOnClickListener {
+        home_entries_button.setOnClickListener {
             router.navigate(BoosterNavigationEvent.VOCABULARY)
         }
         home_settings_button.setOnClickListener {

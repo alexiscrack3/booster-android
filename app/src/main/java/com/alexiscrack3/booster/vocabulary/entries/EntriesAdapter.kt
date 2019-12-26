@@ -1,4 +1,4 @@
-package com.alexiscrack3.booster.vocabulary
+package com.alexiscrack3.booster.vocabulary.entries
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.models.Entry
 
-class VocabularyAdapter(
-    entries: List<Entry> = emptyList()
+class EntriesAdapter(
+    entries: List<Entry> = emptyList(),
+    private val onClick: (Entry) -> Unit = {}
 ) : RecyclerView.Adapter<EntryViewHolder>() {
     private val entries = entries.toMutableList()
 
@@ -20,7 +21,7 @@ class VocabularyAdapter(
 
     override fun onBindViewHolder(holder: EntryViewHolder, position: Int) {
         val entry = entries[position]
-        holder.bind(entry)
+        holder.bind(entry, onClick)
     }
 
     fun swap(entries: List<Entry>) {

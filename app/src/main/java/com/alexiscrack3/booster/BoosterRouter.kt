@@ -13,7 +13,7 @@ class BoosterRouter {
 }
 
 sealed class BoosterNavigationEvent {
-    object HOME : BoosterNavigationEvent()
     object SETTINGS : BoosterNavigationEvent()
     object VOCABULARY : BoosterNavigationEvent()
+    class ENTRY_DETAILS(val entryId: String) : BoosterNavigationEvent()
 }
