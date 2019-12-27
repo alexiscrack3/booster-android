@@ -77,6 +77,8 @@ dependencies {
     // testing fragments in isolation
     debugImplementation 'androidx.fragment:fragment-testing:1.1.0'
 
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+
     // AndroidJUnit4 runner
     testImplementation 'androidx.test.ext:junit:1.1.1'
 
