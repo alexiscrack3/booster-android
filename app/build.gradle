@@ -74,6 +74,9 @@ dependencies {
     // core library
     testImplementation 'androidx.test:core:1.2.0'
 
+    // testing fragments in isolation
+    debugImplementation 'androidx.fragment:fragment-testing:1.1.0'
+
     // AndroidJUnit4 runner
     testImplementation 'androidx.test.ext:junit:1.1.1'
 

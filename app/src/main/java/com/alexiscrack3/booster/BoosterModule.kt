@@ -1,6 +1,6 @@
 package com.alexiscrack3.booster
 
-import android.app.Application
+import android.content.Context
 import com.alexiscrack3.booster.vocabulary.details.entryDetailsModule
 import com.alexiscrack3.booster.vocabulary.entries.entriesModule
 import com.google.firebase.firestore.FirebaseFirestore
@@ -11,13 +11,13 @@ import org.koin.dsl.module
 
 object BoosterModule {
 
-    fun init(application: Application) {
+    fun init(context: Context) {
         startKoin {
             // use AndroidLogger as Koin Logger - default Level.INFO
             androidLogger()
 
             // use the Android context given there
-            androidContext(application)
+            androidContext(context)
 
             val routerModule = module {
                 single {
