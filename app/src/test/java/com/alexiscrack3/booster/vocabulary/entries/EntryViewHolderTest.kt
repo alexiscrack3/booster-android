@@ -10,7 +10,6 @@ import org.junit.Test
 
 class EntryViewHolderTest : BoosterTest() {
     private val view = inflateView(R.layout.item_entry)
-    private val testObject = EntryViewHolder(view)
 
     @Test
     fun `when bound name text is set`() {
@@ -21,6 +20,8 @@ class EntryViewHolderTest : BoosterTest() {
             "prounciation",
             emptyList()
         )
+        
+        val testObject = EntryViewHolder(view)
         testObject.bind(entry, {})
 
         assertThat(view.entry_headword_text_view.text.toString(), equalTo(entry.headword))
