@@ -1,7 +1,5 @@
 package com.alexiscrack3.booster.vocabulary.entries
 
-import android.view.LayoutInflater
-import android.widget.LinearLayout
 import com.alexiscrack3.booster.BoosterTest
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.models.Entry
@@ -11,7 +9,7 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 
 class EntryViewHolderTest : BoosterTest() {
-    private val view = LayoutInflater.from(context).inflate(R.layout.item_entry, LinearLayout(context), false)
+    private val view = inflateView(R.layout.item_entry)
     private val testObject = EntryViewHolder(view)
 
     @Test
