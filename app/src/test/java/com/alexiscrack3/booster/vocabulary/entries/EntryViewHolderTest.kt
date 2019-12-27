@@ -3,7 +3,6 @@ package com.alexiscrack3.booster.vocabulary.entries
 import com.alexiscrack3.booster.BoosterTest
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.models.Entry
-import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import kotlinx.android.synthetic.main.item_entry.view.*
@@ -48,5 +47,5 @@ class EntryViewHolderTest : BoosterTest() {
         verify(onClick).invoke(entry)
     }
 
-    private interface OnClickHandler: (Entry) -> Unit
+    private interface OnClickHandler : (Entry) -> Unit
 }
