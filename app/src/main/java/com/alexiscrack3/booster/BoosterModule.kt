@@ -1,6 +1,7 @@
 package com.alexiscrack3.booster
 
 import android.content.Context
+import com.alexiscrack3.booster.home.homeModule
 import com.alexiscrack3.booster.vocabulary.details.entryDetailsModule
 import com.alexiscrack3.booster.vocabulary.entries.entriesModule
 import com.google.firebase.firestore.FirebaseFirestore
@@ -35,6 +36,7 @@ object BoosterModule {
                 networkModule,
                 routerModule,
                 firestoreModule,
+                homeModule,
                 entriesModule,
                 entryDetailsModule
             )

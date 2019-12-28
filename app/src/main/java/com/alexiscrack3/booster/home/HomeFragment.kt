@@ -4,31 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.alexiscrack3.booster.BoosterFragment
-import com.alexiscrack3.booster.BoosterNavigationEvent
-import com.alexiscrack3.booster.BoosterRouter
 import com.alexiscrack3.booster.R
-import kotlinx.android.synthetic.main.fragment_home.*
-import org.koin.android.ext.android.inject
+import com.alexiscrack3.booster.databinding.HomeFragmentBinding
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : BoosterFragment() {
-    private val router by inject<BoosterRouter>()
+    private val homeViewModel by viewModel<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        home_entries_button.setOnClickListener {
-            router.navigate(BoosterNavigationEvent.VOCABULARY)
-        }
-        home_settings_button.setOnClickListener {
-            router.navigate(BoosterNavigationEvent.SETTINGS)
-        }
+        val binding = DataBindingUtil.inflate<HomeFragmentBinding>(
+            inflater,
+            R.layout.fragment_home,
+            container,
+            false
+        )
+        binding.viewModel = homeViewModel
+        return binding.root
     }
 }
