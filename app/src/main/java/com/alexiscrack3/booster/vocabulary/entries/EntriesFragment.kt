@@ -34,7 +34,7 @@ class EntriesFragment : BoosterFragment() {
         vocabulary_list.adapter = EntriesAdapter(onClick = {
             router.navigate(BoosterNavigationEvent.ENTRY_DETAILS(it.id))
         })
-//        vocabulary_list.addItemDecoration(BottomItemDecoration(requireContext()))
+//        vocabulary_list.addItemDecoration(BottomDividerItemDecoration(requireContext()))
         vocabulary_list.addItemDecoration(DividerItemDecoration(requireContext(), OrientationHelper.VERTICAL))
     }
 

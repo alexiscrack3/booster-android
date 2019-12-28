@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.roundToInt
 
-class BottomItemDecoration(
+class BottomDividerItemDecoration(
     private val context: Context,
     private val leftMargin: Int = 0,
     private val rightMargin: Int = 0
