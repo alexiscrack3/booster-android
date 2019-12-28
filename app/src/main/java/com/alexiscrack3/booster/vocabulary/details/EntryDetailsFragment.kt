@@ -16,6 +16,7 @@ import timber.log.Timber
 
 class EntryDetailsFragment : BoosterFragment() {
     private val entryDetailsViewModel by inject<EntryDetailsViewModel>()
+    private lateinit var binding: EntryDetailsFragmentBinding
 
     companion object {
         const val ENTRY_ID_KEY = "ENTRY_ID"
@@ -34,7 +35,7 @@ class EntryDetailsFragment : BoosterFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<EntryDetailsFragmentBinding>(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_entry_details,
             container,
@@ -57,7 +58,7 @@ class EntryDetailsFragment : BoosterFragment() {
                 .filter { it.entry != null }
                 .map { it.entry }
                 .subscribe({ entry ->
-                    entry_details_headword_text_view.text = entry?.headword
+                    binding.headword = entry?.headword
                     Timber.d("Got entry")
                 }, {
                     Timber.e(it)
