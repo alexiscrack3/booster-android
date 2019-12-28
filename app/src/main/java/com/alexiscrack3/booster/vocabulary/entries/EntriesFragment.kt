@@ -5,7 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.alexiscrack3.booster.*
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.OrientationHelper
+import com.alexiscrack3.booster.BoosterFragment
+import com.alexiscrack3.booster.BoosterNavigationEvent
+import com.alexiscrack3.booster.BoosterRouter
+import com.alexiscrack3.booster.R
 import kotlinx.android.synthetic.main.fragment_entries.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -29,8 +34,8 @@ class EntriesFragment : BoosterFragment() {
         vocabulary_list.adapter = EntriesAdapter(onClick = {
             router.navigate(BoosterNavigationEvent.ENTRY_DETAILS(it.id))
         })
-        vocabulary_list.addItemDecoration(BottomItemDecoration(requireContext()))
-//        vocabulary_list.addItemDecoration(DividerItemDecoration(requireContext(), OrientationHelper.VERTICAL))
+//        vocabulary_list.addItemDecoration(BottomItemDecoration(requireContext()))
+        vocabulary_list.addItemDecoration(DividerItemDecoration(requireContext(), OrientationHelper.VERTICAL))
     }
 
     override fun onResume() {
