@@ -1,9 +1,7 @@
 package com.alexiscrack3.booster.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
@@ -12,6 +10,11 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : BoosterFragment() {
     private val homeViewModel by viewModel<HomeViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,5 +29,9 @@ class HomeFragment : BoosterFragment() {
         )
         binding.viewModel = homeViewModel
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.options, menu)
     }
 }
