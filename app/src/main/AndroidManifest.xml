@@ -22,5 +22,8 @@
         <activity
             android:name=".vocabulary.VocabularyActivity"
             android:parentActivityName=".home.HomeActivity" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:parentActivityName=".home.HomeActivity" />
     </application>
 </manifest>

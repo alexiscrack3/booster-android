@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.HomeFragmentBinding
+import com.alexiscrack3.booster.settings.SettingsActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : BoosterFragment() {
@@ -33,5 +34,15 @@ class HomeFragment : BoosterFragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.options, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return if (item.itemId == R.id.settings) {
+            val intent = SettingsActivity.getIntent(requireContext())
+            startActivity(intent)
+            true
+        } else {
+            false
+        }
     }
 }
