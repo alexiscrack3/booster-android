@@ -14,6 +14,6 @@ class BoosterRouter {
 
 sealed class BoosterNavigationEvent {
     object Play : BoosterNavigationEvent()
-    object VOCABULARY : BoosterNavigationEvent()
-    class ENTRY_DETAILS(val entryId: String) : BoosterNavigationEvent()
+    object Vocabulary : BoosterNavigationEvent()
+    class EntryDetails(val entryId: String) : BoosterNavigationEvent()
 }

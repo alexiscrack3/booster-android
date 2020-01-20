@@ -32,7 +32,7 @@ class EntriesFragment : BoosterFragment() {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = this.getString(R.string.entries)
         vocabulary_list.adapter = EntriesAdapter(onClick = {
-            router.navigate(BoosterNavigationEvent.ENTRY_DETAILS(it.id))
+            router.navigate(BoosterNavigationEvent.EntryDetails(it.id))
         })
 //        vocabulary_list.addItemDecoration(BottomDividerItemDecoration(requireContext()))
         vocabulary_list.addItemDecoration(DividerItemDecoration(requireContext(), OrientationHelper.VERTICAL))

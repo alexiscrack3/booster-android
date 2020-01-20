@@ -41,7 +41,7 @@ class VocabularyActivity : BoosterActivity() {
 
     private fun navigate(event: BoosterNavigationEvent) {
         when (event) {
-            is BoosterNavigationEvent.ENTRY_DETAILS -> {
+            is BoosterNavigationEvent.EntryDetails -> {
                 showFragment(EntryDetailsFragment.newInstance(event.entryId))
             }
         }

@@ -9,7 +9,7 @@ class HomeViewModel(
 ) : ViewModel() {
 
     fun onEntriesClick() {
-        router.navigate(BoosterNavigationEvent.VOCABULARY)
+        router.navigate(BoosterNavigationEvent.Vocabulary)
     }
 
     fun onPlayClick() {

@@ -53,7 +53,7 @@ class HomeActivityTest : BoosterTest() {
 
         val activityScenario = ActivityScenario.launch(HomeActivity::class.java)
         activityScenario.onActivity {
-            router.navigate(BoosterNavigationEvent.VOCABULARY)
+            router.navigate(BoosterNavigationEvent.Vocabulary)
 
             intended(hasComponent(VocabularyActivity::class.java.name))
         }.close()

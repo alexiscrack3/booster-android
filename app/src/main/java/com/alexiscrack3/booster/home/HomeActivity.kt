@@ -34,7 +34,7 @@ class HomeActivity : BoosterActivity() {
     private fun navigate(event: BoosterNavigationEvent) {
         when (event) {
             BoosterNavigationEvent.Play -> showFragment(PlayFragment())
-            BoosterNavigationEvent.VOCABULARY -> {
+            BoosterNavigationEvent.Vocabulary -> {
                 val intent = VocabularyActivity.getIntent(this)
                 startActivity(intent)
             }
