@@ -17,6 +17,10 @@ class HomeActivity : BoosterActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        supportFragmentManager.addOnBackStackChangedListener {
+            updateToolbarTitle()
+        }
+
         showFragment(HomeFragment(), false)
     }
 
@@ -43,5 +47,11 @@ class HomeActivity : BoosterActivity() {
 
     private fun showFragment(fragment: Fragment, addToBackStack: Boolean = true) {
         showFragment(R.id.home_container, fragment, addToBackStack)
+    }
+
+    private fun updateToolbarTitle() {
+        if (supportFragmentManager.backStackEntryCount == 0) {
+            this.title = getString(R.string.app_name)
+        }
     }
 }
