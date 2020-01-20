@@ -12,7 +12,7 @@ class HomeViewModel(
         router.navigate(BoosterNavigationEvent.VOCABULARY)
     }
 
-    fun onSettingsClick() {
-        router.navigate(BoosterNavigationEvent.SETTINGS)
+    fun onPlayClick() {
+        router.navigate(BoosterNavigationEvent.Play)
     }
 }

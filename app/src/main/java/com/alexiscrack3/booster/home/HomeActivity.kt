@@ -6,6 +6,7 @@ import com.alexiscrack3.booster.BoosterActivity
 import com.alexiscrack3.booster.BoosterNavigationEvent
 import com.alexiscrack3.booster.BoosterRouter
 import com.alexiscrack3.booster.R
+import com.alexiscrack3.booster.play.PlayFragment
 import com.alexiscrack3.booster.vocabulary.VocabularyActivity
 import org.koin.android.ext.android.inject
 
@@ -32,7 +33,7 @@ class HomeActivity : BoosterActivity() {
 
     private fun navigate(event: BoosterNavigationEvent) {
         when (event) {
-            BoosterNavigationEvent.SETTINGS -> showFragment(SettingsFragment())
+            BoosterNavigationEvent.Play -> showFragment(PlayFragment())
             BoosterNavigationEvent.VOCABULARY -> {
                 val intent = VocabularyActivity.getIntent(this)
                 startActivity(intent)

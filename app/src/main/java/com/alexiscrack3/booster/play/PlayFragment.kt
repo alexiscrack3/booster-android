@@ -1,25 +1,24 @@
-package com.alexiscrack3.booster.home
+package com.alexiscrack3.booster.play
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 
-class SettingsFragment : BoosterFragment() {
+class PlayFragment : BoosterFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        return inflater.inflate(R.layout.fragment_play, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = this.getString(R.string.settings)
+        requireActivity().title = this.getString(R.string.play)
     }
 }

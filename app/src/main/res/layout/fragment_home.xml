@@ -35,8 +35,8 @@
                 android:id="@+id/home_settings_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{() -> viewModel.onSettingsClick()}"
-                android:text="@string/settings" />
+                android:onClick="@{() -> viewModel.onPlayClick()}"
+                android:text="@string/play" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,6 +7,7 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import com.alexiscrack3.booster.BoosterNavigationEvent
 import com.alexiscrack3.booster.BoosterRouter
 import com.alexiscrack3.booster.BoosterTest
+import com.alexiscrack3.booster.play.PlayFragment
 import com.alexiscrack3.booster.vocabulary.VocabularyActivity
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.CoreMatchers.instanceOf
@@ -36,13 +37,13 @@ class HomeActivityTest : BoosterTest() {
     }
 
     @Test
-    fun `shows settings screen`() {
+    fun `shows play screen`() {
         val activityScenario = ActivityScenario.launch(HomeActivity::class.java)
         activityScenario.onActivity { activity ->
-            router.navigate(BoosterNavigationEvent.SETTINGS)
+            router.navigate(BoosterNavigationEvent.Play)
 
             val fragment = activity.supportFragmentManager.fragments.first()
-            assertThat(fragment, instanceOf(SettingsFragment::class.java))
+            assertThat(fragment, instanceOf(PlayFragment::class.java))
         }.close()
     }
 

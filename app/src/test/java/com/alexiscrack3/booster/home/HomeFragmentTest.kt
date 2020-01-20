@@ -36,7 +36,7 @@ class HomeFragmentTest : BoosterTest() {
         fragmentScenario.onFragment { fragment ->
             fragment.home_settings_button.performClick()
 
-            verify(router).navigate(BoosterNavigationEvent.SETTINGS)
+            verify(router).navigate(BoosterNavigationEvent.Play)
         }
     }
 }
