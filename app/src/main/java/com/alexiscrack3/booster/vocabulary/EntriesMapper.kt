@@ -2,26 +2,28 @@ package com.alexiscrack3.booster.vocabulary
 
 import com.alexiscrack3.booster.models.Entry
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.QuerySnapshot
 
 class EntriesMapper {
 
     fun map(querySnapshot: QuerySnapshot): List<Entry> {
-        return querySnapshot.map { queryDocumentSnapshot ->
-            queryDocumentSnapshot.toEntry()
+        val transform: (QueryDocumentSnapshot) -> Entry = { queryDocumentSnapshot ->
+            queryDocumentSnapshot.asEntry()
         }
+        return querySnapshot.map<QueryDocumentSnapshot, Entry>(transform)
     }
 
     fun map(documentSnapshot: DocumentSnapshot): Entry? {
-        return documentSnapshot.toEntry()
+        return documentSnapshot.asEntry()
     }
 
-    private fun DocumentSnapshot.toEntry(): Entry {
+    private fun DocumentSnapshot.asEntry(): Entry {
         return Entry(
             this.id,
             this["headword"] as String,
             this["class"] as String,
-            null, // this["pronunciation"] as String,
+            this["pronunciation"] as String,
             this["definitions"] as List<String>
         )
     }

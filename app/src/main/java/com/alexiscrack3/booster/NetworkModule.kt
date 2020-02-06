@@ -33,10 +33,10 @@ val networkModule = module {
     single {
         buildRetrofit(BuildConfig.BASE_URL, get(), get())
     }
-    factory {
-        val retrofit = get<Retrofit>()
-        retrofit.create(EntriesService::class.java)
-    }
+//    factory {
+//        val retrofit = get<Retrofit>()
+//        retrofit.create(EntriesService::class.java)
+//    }
 }
 
 private fun buildRetrofit(url: String, okHttpClient: OkHttpClient, gson: Gson): Retrofit {

@@ -12,6 +12,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Before
 import org.junit.runner.RunWith
+import org.koin.core.context.startKoin
 import org.koin.test.AutoCloseKoinTest
 import org.robolectric.annotation.Config
 
@@ -26,7 +27,8 @@ abstract class BoosterTest : AutoCloseKoinTest() {
 
     @Before
     open fun setUp() {
-        BoosterModule.init(context)
+        startKoin {  }
+        BoosterModule.init()
     }
 
     fun inflateView(@LayoutRes layoutId: Int, enclosingLayoutFactory: (Context) -> ViewGroup = { LinearLayout(it) }, attachToRoot: Boolean = false): View {
