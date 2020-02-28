@@ -1,7 +1,8 @@
-package com.alexiscrack3.booster.vocabulary.entries
+package com.alexiscrack3.booster.entries.list
 
 import com.alexiscrack3.booster.BoosterTest
 import com.alexiscrack3.booster.R
+import com.alexiscrack3.booster.models.Category
 import com.alexiscrack3.booster.models.Entry
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
@@ -18,8 +19,8 @@ class EntryViewHolderTest : BoosterTest() {
         val entry = Entry(
             "id",
             "headword",
-            "class",
-            "prounciation",
+            Category.NOUN,
+            emptyList(),
             emptyList()
         )
         val testObject = EntryViewHolder(view)
@@ -34,8 +35,8 @@ class EntryViewHolderTest : BoosterTest() {
         val entry = Entry(
             "id",
             "headword",
-            "class",
-            "prounciation",
+            Category.NOUN,
+            emptyList(),
             emptyList()
         )
         val testObject = EntryViewHolder(view)

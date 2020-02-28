@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".vocabulary.VocabularyActivity"
+            android:name=".entries.VocabularyActivity"
             android:parentActivityName=".home.HomeActivity" />
         <activity
             android:name=".settings.SettingsActivity"

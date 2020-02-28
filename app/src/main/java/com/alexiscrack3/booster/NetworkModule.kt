@@ -1,6 +1,5 @@
 package com.alexiscrack3.booster
 
-import com.alexiscrack3.booster.vocabulary.EntriesService
 import com.google.gson.Gson
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient

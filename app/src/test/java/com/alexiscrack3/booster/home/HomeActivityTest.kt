@@ -6,7 +6,7 @@ import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import com.alexiscrack3.booster.*
 import com.alexiscrack3.booster.play.PlayFragment
-import com.alexiscrack3.booster.vocabulary.VocabularyActivity
+import com.alexiscrack3.booster.entries.VocabularyActivity
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test

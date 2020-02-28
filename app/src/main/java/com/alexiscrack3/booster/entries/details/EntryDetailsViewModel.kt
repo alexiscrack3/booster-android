@@ -1,9 +1,9 @@
-package com.alexiscrack3.booster.vocabulary.details
+package com.alexiscrack3.booster.entries.details
 
 import com.alexiscrack3.booster.StateViewModel
 import com.alexiscrack3.booster.models.Entry
-import com.alexiscrack3.booster.vocabulary.EntriesRepository
-import com.alexiscrack3.booster.vocabulary.details.EntryDetailsViewModel.EntryDetailsViewState
+import com.alexiscrack3.booster.entries.EntriesRepository
+import com.alexiscrack3.booster.entries.details.EntryDetailsViewModel.EntryDetailsViewState
 import timber.log.Timber
 
 class EntryDetailsViewModel(

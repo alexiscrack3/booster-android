@@ -1,4 +1,4 @@
-package com.alexiscrack3.booster.vocabulary
+package com.alexiscrack3.booster.entries
 
 import android.content.Context
 import android.content.Intent
@@ -8,8 +8,8 @@ import com.alexiscrack3.booster.BoosterActivity
 import com.alexiscrack3.booster.BoosterNavigationEvent
 import com.alexiscrack3.booster.BoosterRouter
 import com.alexiscrack3.booster.R
-import com.alexiscrack3.booster.vocabulary.details.EntryDetailsFragment
-import com.alexiscrack3.booster.vocabulary.entries.EntriesFragment
+import com.alexiscrack3.booster.entries.details.EntryDetailsFragment
+import com.alexiscrack3.booster.entries.list.EntriesFragment
 import org.koin.android.ext.android.inject
 
 class VocabularyActivity : BoosterActivity() {

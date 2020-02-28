@@ -1,7 +1,7 @@
-package com.alexiscrack3.booster.vocabulary.entries
+package com.alexiscrack3.booster.entries.list
 
-import com.alexiscrack3.booster.vocabulary.EntriesRepository
-import com.alexiscrack3.booster.vocabulary.EntriesService
+import com.alexiscrack3.booster.entries.EntriesRepository
+import com.alexiscrack3.booster.entries.EntriesService
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

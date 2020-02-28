@@ -7,7 +7,7 @@ import com.alexiscrack3.booster.BoosterNavigationEvent
 import com.alexiscrack3.booster.BoosterRouter
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.play.PlayFragment
-import com.alexiscrack3.booster.vocabulary.VocabularyActivity
+import com.alexiscrack3.booster.entries.VocabularyActivity
 import org.koin.android.ext.android.inject
 
 class HomeActivity : BoosterActivity() {

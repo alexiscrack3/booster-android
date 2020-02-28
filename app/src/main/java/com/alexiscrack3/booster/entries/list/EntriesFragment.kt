@@ -1,4 +1,4 @@
-package com.alexiscrack3.booster.vocabulary.entries
+package com.alexiscrack3.booster.entries.list
 
 import android.os.Bundle
 import android.view.LayoutInflater

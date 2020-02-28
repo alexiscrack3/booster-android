@@ -1,4 +1,4 @@
-package com.alexiscrack3.booster.vocabulary.details
+package com.alexiscrack3.booster.entries.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.EntryDetailsFragmentBinding
-import kotlinx.android.synthetic.main.fragment_entry_details.*
 import org.koin.android.ext.android.inject
 import timber.log.Timber
 

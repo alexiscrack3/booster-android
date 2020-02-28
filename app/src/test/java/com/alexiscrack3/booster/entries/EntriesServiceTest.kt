@@ -1,6 +1,6 @@
-package com.alexiscrack3.booster.vocabulary
+package com.alexiscrack3.booster.entries
 
-import com.alexiscrack3.booster.vocabulary.EntriesService.Companion.ENTRIES_PATH
+import com.alexiscrack3.booster.entries.EntriesService.Companion.ENTRIES_PATH
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task

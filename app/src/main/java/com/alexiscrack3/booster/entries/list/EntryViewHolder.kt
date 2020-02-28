@@ -1,4 +1,4 @@
-package com.alexiscrack3.booster.vocabulary.entries
+package com.alexiscrack3.booster.entries.list
 
 import android.view.View
 import android.widget.TextView

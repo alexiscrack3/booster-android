@@ -1,4 +1,4 @@
-package com.alexiscrack3.booster.vocabulary
+package com.alexiscrack3.booster.entries
 
 import com.alexiscrack3.booster.models.Entry
 import com.google.firebase.firestore.DocumentSnapshot
