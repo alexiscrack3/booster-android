@@ -4,13 +4,11 @@ import com.alexiscrack3.booster.models.Category
 import com.alexiscrack3.booster.models.Entry
 import com.alexiscrack3.booster.models.Sense
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.QueryDocumentSnapshot
-import com.google.firebase.firestore.QuerySnapshot
 
 class EntriesMapper {
 
-    fun map(querySnapshot: QuerySnapshot): List<Entry> {
-        return querySnapshot.map<QueryDocumentSnapshot, Entry> { queryDocumentSnapshot ->
+    fun map(querySnapshot: Iterable<DocumentSnapshot>): List<Entry> {
+        return querySnapshot.map { queryDocumentSnapshot ->
             queryDocumentSnapshot.asEntry()
         }
     }
