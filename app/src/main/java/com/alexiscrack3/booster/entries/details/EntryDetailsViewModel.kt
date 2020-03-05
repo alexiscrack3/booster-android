@@ -8,38 +8,38 @@ import timber.log.Timber
 
 class EntryDetailsViewModel(
     private val entriesRepository: EntriesRepository
-) : StateViewModel<EntryDetailsViewState>(EntryDetailsViewState()) {
+) : StateViewModel() {//<EntryDetailsViewState>(EntryDetailsViewState()) {
 
     fun getEntryDetails(id: String) {
-        entriesRepository.getEntry(id)
-            .doOnSubscribe {
-                updateState {
-                    it.copy(
-                        showProgress = true
-                    )
-                }
-            }
-            .doAfterTerminate {
-                updateState {
-                    it.copy(
-                        showProgress = false
-                    )
-                }
-            }
-            .subscribe({ entry ->
-                updateState {
-                    it.copy(
-                        entry = entry
-                    )
-                }
-            }, {
-                Timber.e(it)
-                updateState {
-                    it.copy(
-                        entry = null
-                    )
-                }
-            }).autoDispose()
+//        entriesRepository.getEntry(id)
+//            .doOnSubscribe {
+//                updateState {
+//                    it.copy(
+//                        showProgress = true
+//                    )
+//                }
+//            }
+//            .doAfterTerminate {
+//                updateState {
+//                    it.copy(
+//                        showProgress = false
+//                    )
+//                }
+//            }
+//            .subscribe({ entry ->
+//                updateState {
+//                    it.copy(
+//                        entry = entry
+//                    )
+//                }
+//            }, {
+//                Timber.e(it)
+//                updateState {
+//                    it.copy(
+//                        entry = null
+//                    )
+//                }
+//            }).autoDispose()
     }
 
     data class EntryDetailsViewState(

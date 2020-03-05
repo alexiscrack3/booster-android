@@ -21,17 +21,17 @@ class EntriesMapper {
         return Entry(
             this.id,
             this["headword"] as String,
-            (this["category"] as Int).asCategory(),
+            (this["category"] as Long).asCategory(),
             (this["senses"] as List<Map<String, Any>>).asSenses(),
-            this["tags"] as List<String>
+            this["tags"] as List<String>? ?: emptyList()
         )
     }
 
-    private fun Int.asCategory(): Category {
+    private fun Long.asCategory(): Category {
         return when (this) {
-            0 -> Category.NOUN
-            1 -> Category.ADJECTIVE
-            2 -> Category.VERB
+            0L -> Category.NOUN
+            1L -> Category.ADJECTIVE
+            2L -> Category.VERB
             else -> Category.PHRASAL_VERB
         }
     }

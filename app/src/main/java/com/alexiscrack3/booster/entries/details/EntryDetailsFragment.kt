@@ -50,19 +50,19 @@ class EntryDetailsFragment : BoosterFragment() {
 
     override fun onResume() {
         super.onResume()
-        arguments?.getString(ENTRY_ID_KEY)?.let { entryId ->
-            entryDetailsViewModel.getEntryDetails(entryId)
-
-            entryDetailsViewModel.state
-                .filter { it.entry != null }
-                .map { it.entry }
-                .subscribe({ entry ->
-                    binding.headword = entry?.headword
-                    Timber.d("Got entry")
-                }, {
-                    Timber.e(it)
-                })
-                .autoDispose()
-        }
+//        arguments?.getString(ENTRY_ID_KEY)?.let { entryId ->
+//            entryDetailsViewModel.getEntryDetails(entryId)
+//
+//            entryDetailsViewModel.state
+//                .filter { it.entry != null }
+//                .map { it.entry }
+//                .subscribe({ entry ->
+//                    binding.headword = entry?.headword
+//                    Timber.d("Got entry")
+//                }, {
+//                    Timber.e(it)
+//                })
+//                .autoDispose()
+//        }
     }
 }
