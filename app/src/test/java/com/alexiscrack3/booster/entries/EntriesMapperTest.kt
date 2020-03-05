@@ -22,7 +22,7 @@ class EntriesMapperTest {
         val documentSnapshot = mock<DocumentSnapshot> {
             on { this.id } doReturn id
             on { this.get("headword") } doReturn headword
-            on { this.get("category") } doReturn category.ordinal
+            on { this.get("category") } doReturn category.ordinal.toLong()
             on { this.get("senses") } doReturn listOf(
                 mapOf(
                     "definition" to sense.definition,
@@ -48,7 +48,7 @@ class EntriesMapperTest {
         val documentSnapshot = mock<DocumentSnapshot> {
             on { this.id } doReturn id
             on { this.get("headword") } doReturn headword
-            on { this.get("category") } doReturn category.ordinal
+            on { this.get("category") } doReturn category.ordinal.toLong()
             on { this.get("senses") } doReturn listOf(
                 mapOf(
                     "definition" to sense.definition,

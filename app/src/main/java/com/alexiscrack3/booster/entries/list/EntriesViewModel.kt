@@ -7,7 +7,6 @@ import com.alexiscrack3.booster.entries.EntriesRepository
 import com.alexiscrack3.booster.models.Entry
 import timber.log.Timber
 
-
 class EntriesViewModel(
     private val entriesRepository: EntriesRepository
 ) : StateViewModel() {

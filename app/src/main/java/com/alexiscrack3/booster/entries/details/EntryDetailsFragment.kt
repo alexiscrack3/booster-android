@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.EntryDetailsFragmentBinding
+import com.alexiscrack3.booster.models.Entry
 import org.koin.android.ext.android.inject
-import timber.log.Timber
 
 class EntryDetailsFragment : BoosterFragment() {
     private val entryDetailsViewModel by inject<EntryDetailsViewModel>()
@@ -46,23 +47,12 @@ class EntryDetailsFragment : BoosterFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = this.getString(R.string.details)
-    }
 
-    override fun onResume() {
-        super.onResume()
-//        arguments?.getString(ENTRY_ID_KEY)?.let { entryId ->
-//            entryDetailsViewModel.getEntryDetails(entryId)
-//
-//            entryDetailsViewModel.state
-//                .filter { it.entry != null }
-//                .map { it.entry }
-//                .subscribe({ entry ->
-//                    binding.headword = entry?.headword
-//                    Timber.d("Got entry")
-//                }, {
-//                    Timber.e(it)
-//                })
-//                .autoDispose()
-//        }
+        arguments?.getString(ENTRY_ID_KEY)?.let { entryId ->
+            val entryObserver = Observer<String> { headword ->
+                binding.headword = headword
+            }
+            entryDetailsViewModel.entryData(entryId).observe(this, entryObserver)
+        }
     }
 }
