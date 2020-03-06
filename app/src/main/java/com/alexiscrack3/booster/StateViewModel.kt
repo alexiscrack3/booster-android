@@ -7,7 +7,7 @@ import io.reactivex.disposables.Disposable
 abstract class StateViewModel : ViewModel() {
     private val disposables = CompositeDisposable()
 
-    fun Disposable.autoDispose() = disposables.add(this)
+    protected fun Disposable.autoDispose() = disposables.add(this)
 
     override fun onCleared() {
         super.onCleared()
