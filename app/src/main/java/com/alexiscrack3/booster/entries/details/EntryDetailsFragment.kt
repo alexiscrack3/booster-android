@@ -33,14 +33,15 @@ class EntryDetailsFragment : BoosterFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate<EntryDetailsFragmentBinding>(
             inflater,
             R.layout.fragment_entry_details,
             container,
             false
-        )
-        binding.lifecycleOwner = this
-        binding.viewModel = entryDetailsViewModel
+        ).apply {
+            lifecycleOwner = this@EntryDetailsFragment
+            viewModel = entryDetailsViewModel
+        }
         return binding.root
     }
 
