@@ -13,12 +13,10 @@ class EntryDetailsViewModel(
 ) : StateViewModel() {
     private val _entryData = MutableLiveData<Entry>()
 
-    fun entryData(entryId: String): LiveData<String> {
-        getEntryDetails(entryId)
-        return Transformations.map(_entryData) { it.headword }
-    }
+    val headword: LiveData<String>
+        get() = Transformations.map(_entryData) { it.headword }
 
-    private fun getEntryDetails(id: String) {
+    fun getEntryDetails(id: String) {
         entriesRepository.getEntry(id).subscribe({ entry ->
             _entryData.postValue(entry)
         }, {

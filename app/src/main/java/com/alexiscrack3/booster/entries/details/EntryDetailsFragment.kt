@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.EntryDetailsFragmentBinding
-import com.alexiscrack3.booster.models.Entry
 import org.koin.android.ext.android.inject
 
 class EntryDetailsFragment : BoosterFragment() {
@@ -41,6 +39,8 @@ class EntryDetailsFragment : BoosterFragment() {
             container,
             false
         )
+        binding.lifecycleOwner = this
+        binding.viewModel = entryDetailsViewModel
         return binding.root
     }
 
@@ -49,10 +49,7 @@ class EntryDetailsFragment : BoosterFragment() {
         (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = this.getString(R.string.details)
 
         arguments?.getString(ENTRY_ID_KEY)?.let { entryId ->
-            val entryObserver = Observer<String> { headword ->
-                binding.headword = headword
-            }
-            entryDetailsViewModel.entryData(entryId).observe(this, entryObserver)
+            entryDetailsViewModel.getEntryDetails(entryId)
         }
     }
 }

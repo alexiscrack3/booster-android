@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data class="EntryDetailsFragmentBinding">
-        <variable name="headword" type="String"/>
+        <variable name="viewModel" type="com.alexiscrack3.booster.entries.details.EntryDetailsViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
             android:id="@+id/entry_details_headword_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{headword}"
+            android:text="@{viewModel.headword}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
