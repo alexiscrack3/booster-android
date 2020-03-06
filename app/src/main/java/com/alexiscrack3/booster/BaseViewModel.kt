@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class StateViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
     private val disposables = CompositeDisposable()
 
     protected fun Disposable.autoDispose() = disposables.add(this)
