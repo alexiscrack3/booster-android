@@ -22,12 +22,14 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class EntriesFragment : BoosterFragment() {
     private val entriesViewModel by viewModel<EntriesViewModel>()
     private val router by inject<BoosterRouter>()
+    private val entriesAdapter = EntriesAdapter {
+        router.navigate(BoosterNavigationEvent.EntryDetails(it.id))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val entriesObserver = Observer<List<Entry>> { entries ->
-            val vocabularyAdapter = vocabulary_list.adapter as EntriesAdapter
-            vocabularyAdapter.swap(entries)
+            entriesAdapter.swap(entries)
         }
         entriesViewModel.entriesData.observe(this, entriesObserver)
     }
@@ -52,9 +54,7 @@ class EntriesFragment : BoosterFragment() {
         super.onViewCreated(view, savedInstanceState)
         val title = this.getString(R.string.entries)
         (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = title
-        vocabulary_list.adapter = EntriesAdapter {
-            router.navigate(BoosterNavigationEvent.EntryDetails(it.id))
-        }
+        vocabulary_list.adapter = entriesAdapter
 //        vocabulary_list.addItemDecoration(BottomDividerItemDecoration(requireContext()))
         val dividerItemDecoration = DividerItemDecoration(
             requireContext(), OrientationHelper.VERTICAL
