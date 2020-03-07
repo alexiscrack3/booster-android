@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.OrientationHelper
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.EntriesFragmentBinding
+import com.alexiscrack3.booster.entries.details.EntryDetailsFragment
 import com.alexiscrack3.booster.models.Entry
 import kotlinx.android.synthetic.main.fragment_entries.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -20,7 +22,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class EntriesFragment : BoosterFragment() {
     private val entriesViewModel by viewModel<EntriesViewModel>()
     private val entriesAdapter = EntriesAdapter {
-        view?.findNavController()?.navigate(R.id.action_entriesFragment_to_entryDetailsFragment)
+        val bundle = bundleOf(
+            EntryDetailsFragment.ENTRY_ID_KEY to it.id
+        )
+        view?.findNavController()?.navigate(R.id.action_entriesFragment_to_entryDetailsFragment, bundle)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
