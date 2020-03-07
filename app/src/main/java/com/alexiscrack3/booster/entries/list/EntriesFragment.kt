@@ -7,23 +7,20 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.OrientationHelper
 import com.alexiscrack3.booster.BoosterFragment
-import com.alexiscrack3.booster.BoosterNavigationEvent
-import com.alexiscrack3.booster.BoosterRouter
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.EntriesFragmentBinding
 import com.alexiscrack3.booster.models.Entry
 import kotlinx.android.synthetic.main.fragment_entries.*
-import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class EntriesFragment : BoosterFragment() {
     private val entriesViewModel by viewModel<EntriesViewModel>()
-    private val router by inject<BoosterRouter>()
     private val entriesAdapter = EntriesAdapter {
-        router.navigate(BoosterNavigationEvent.EntryDetails(it.id))
+        view?.findNavController()?.navigate(R.id.action_entriesFragment_to_entryDetailsFragment)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

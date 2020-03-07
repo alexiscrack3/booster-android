@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/vocabulary_nav_graph"
+    app:startDestination="@id/entriesFragment">
+
+    <fragment
+        android:id="@+id/entriesFragment"
+        android:name="com.alexiscrack3.booster.entries.list.EntriesFragment"
+        android:label="EntriesFragment" >
+        <action
+            android:id="@+id/action_entriesFragment_to_entryDetailsFragment"
+            app:destination="@id/entryDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/entryDetailsFragment"
+        android:name="com.alexiscrack3.booster.entries.details.EntryDetailsFragment"
+        android:label="EntryDetailsFragment" />
+</navigation>
