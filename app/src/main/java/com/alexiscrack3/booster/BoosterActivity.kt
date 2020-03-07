@@ -3,11 +3,8 @@ package com.alexiscrack3.booster
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 
 abstract class BoosterActivity : AppCompatActivity() {
-    private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,11 +13,6 @@ abstract class BoosterActivity : AppCompatActivity() {
             shouldDisplayHomeUp()
         }
         shouldDisplayHomeUp()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        disposables.clear()
     }
 
     protected fun showFragment(layoutId: Int, fragment: Fragment, addToBackStack: Boolean = true) {
@@ -42,10 +34,6 @@ abstract class BoosterActivity : AppCompatActivity() {
                 }
             }
             .commit()
-    }
-
-    fun Disposable.autoDispose() {
-        disposables.add(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
