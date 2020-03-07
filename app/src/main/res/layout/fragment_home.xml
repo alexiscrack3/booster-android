@@ -28,14 +28,14 @@
                 android:id="@+id/home_entries_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{() -> viewModel.onEntriesClick()}"
+                android:onClick="@{(view) -> viewModel.onEntriesClick(view)}"
                 android:text="@string/entries" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/home_settings_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{() -> viewModel.onPlayClick()}"
+                android:onClick="@{(view) -> viewModel.onPlayClick(view)}"
                 android:text="@string/play" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

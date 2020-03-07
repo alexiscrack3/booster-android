@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.alexiscrack3.booster.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_playFragment"
+            app:destination="@id/playFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_vocabularyActivity"
+            app:destination="@id/vocabularyActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.alexiscrack3.booster.play.PlayFragment"
+        android:label="PlayFragment" />
+    <activity
+        android:id="@+id/vocabularyActivity"
+        android:name="com.alexiscrack3.booster.entries.VocabularyActivity"
+        android:label="activity_vocabulary"
+        tools:layout="@layout/activity_vocabulary" />
+</navigation>

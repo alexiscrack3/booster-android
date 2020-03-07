@@ -13,7 +13,7 @@ import org.junit.Test
 import org.koin.test.inject
 
 class HomeActivityTest : BoosterTest() {
-    private val router by inject<BoosterRouter>()
+//    private val router by inject<BoosterRouter>()
 
     @Test
     fun `title is set on toolbar`() {
@@ -66,7 +66,7 @@ class HomeActivityTest : BoosterTest() {
     fun `shows play screen`() {
         val activityScenario = ActivityScenario.launch(HomeActivity::class.java)
         activityScenario.onActivity { activity ->
-            router.navigate(BoosterNavigationEvent.Play)
+//            router.navigate(BoosterNavigationEvent.Play)
 
             val fragment = activity.supportFragmentManager.fragments.first()
             assertThat(fragment, instanceOf(PlayFragment::class.java))
@@ -79,7 +79,7 @@ class HomeActivityTest : BoosterTest() {
 
         val activityScenario = ActivityScenario.launch(HomeActivity::class.java)
         activityScenario.onActivity {
-            router.navigate(BoosterNavigationEvent.Vocabulary)
+//            router.navigate(BoosterNavigationEvent.Vocabulary)
 
             intended(hasComponent(VocabularyActivity::class.java.name))
         }.close()

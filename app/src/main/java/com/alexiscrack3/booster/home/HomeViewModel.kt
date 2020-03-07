@@ -1,18 +1,17 @@
 package com.alexiscrack3.booster.home
 
+import android.view.View
 import androidx.lifecycle.ViewModel
-import com.alexiscrack3.booster.BoosterNavigationEvent
-import com.alexiscrack3.booster.BoosterRouter
+import androidx.navigation.findNavController
+import com.alexiscrack3.booster.R
 
-class HomeViewModel(
-    private val router: BoosterRouter
-) : ViewModel() {
+class HomeViewModel : ViewModel() {
 
-    fun onEntriesClick() {
-        router.navigate(BoosterNavigationEvent.Vocabulary)
+    fun onEntriesClick(view: View) {
+        view.findNavController().navigate(R.id.action_homeFragment_to_vocabularyActivity)
     }
 
-    fun onPlayClick() {
-        router.navigate(BoosterNavigationEvent.Play)
+    fun onPlayClick(view: View) {
+        view.findNavController().navigate(R.id.action_homeFragment_to_playFragment)
     }
 }
