@@ -10,12 +10,6 @@ import org.koin.dsl.module
 object BoosterModule {
 
     fun init() {
-        val routerModule = module {
-            single {
-                BoosterRouter()
-            }
-        }
-
         val firestoreModule = module {
             single {
                 FirebaseFirestore.getInstance()
@@ -24,7 +18,6 @@ object BoosterModule {
 
         val moduleList = listOf(
             networkModule,
-            routerModule,
             firestoreModule,
             homeModule,
             entriesModule,
