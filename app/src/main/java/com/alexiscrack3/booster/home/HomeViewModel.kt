@@ -8,7 +8,7 @@ import com.alexiscrack3.booster.R
 class HomeViewModel : BoosterViewModel() {
 
     fun onEntriesClick(view: View) {
-        view.findNavController().navigate(R.id.action_homeFragment_to_vocabularyActivity)
+        view.findNavController().navigate(R.id.action_homeFragment_to_vocabulary_nav_graph)
     }
 
     fun onPlayClick(view: View) {
