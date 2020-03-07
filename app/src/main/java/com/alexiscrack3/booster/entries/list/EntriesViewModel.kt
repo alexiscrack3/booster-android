@@ -2,14 +2,14 @@ package com.alexiscrack3.booster.entries.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.alexiscrack3.booster.BaseViewModel
+import com.alexiscrack3.booster.BoosterViewModel
 import com.alexiscrack3.booster.entries.EntriesRepository
 import com.alexiscrack3.booster.models.Entry
 import timber.log.Timber
 
 class EntriesViewModel(
     private val entriesRepository: EntriesRepository
-) : BaseViewModel() {
+) : BoosterViewModel() {
     private val _entriesData = MutableLiveData<List<Entry>>()
 
     val entriesData: LiveData<List<Entry>>
