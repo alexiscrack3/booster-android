@@ -30,6 +30,9 @@ android {
     dataBinding {
         enabled true
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     testOptions {
         animationsDisabled true
 
@@ -93,7 +96,7 @@ dependencies {
     testImplementation 'androidx.test:core:1.2.0'
 
     // testing fragments in isolation
-    debugImplementation 'androidx.fragment:fragment-testing:1.1.0'
+    debugImplementation 'androidx.fragment:fragment-testing:1.2.2'
 
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
 
