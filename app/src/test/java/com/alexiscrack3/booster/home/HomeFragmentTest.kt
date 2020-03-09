@@ -4,12 +4,15 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.fragment.app.testing.launchFragmentInContainer
+import androidx.navigation.Navigation
+import androidx.navigation.testing.TestNavHostController
 import com.alexiscrack3.booster.BoosterTest
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.settings.SettingsActivity
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
+import kotlinx.android.synthetic.main.fragment_home.*
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
@@ -65,6 +68,44 @@ class HomeFragmentTest : BoosterTest() {
 
             val actual = shadowOf(context).nextStartedActivity.component?.className
             assertThat(actual, equalTo(SettingsActivity::class.java.name))
+        }
+    }
+
+    @Test
+    fun `navigate to play screen when clicking on the play button`() {
+        val navController = TestNavHostController(context).apply {
+            setGraph(R.navigation.home_nav_graph)
+        }
+
+        val fragmentScenario = launchFragmentInContainer {
+            HomeFragment().also { fragment ->
+                fragment.viewLifecycleOwnerLiveData.observeForever {
+                    Navigation.setViewNavController(fragment.requireView(), navController)
+                }
+            }
+        }
+        fragmentScenario.onFragment { fragment ->
+            fragment.home_play_button.performClick()
+            assertThat(navController.currentDestination?.id, equalTo(R.id.playFragment))
+        }
+    }
+
+    @Test
+    fun `navigate to entries screen when clicking on the entries button`() {
+        val navController = TestNavHostController(context).apply {
+            setGraph(R.navigation.home_nav_graph)
+        }
+
+        val fragmentScenario = launchFragmentInContainer {
+            HomeFragment().also { fragment ->
+                fragment.viewLifecycleOwnerLiveData.observeForever {
+                    Navigation.setViewNavController(fragment.requireView(), navController)
+                }
+            }
+        }
+        fragmentScenario.onFragment { fragment ->
+            fragment.home_entries_button.performClick()
+            assertThat(navController.currentDestination?.id, equalTo(R.id.entriesFragment))
         }
     }
 }
