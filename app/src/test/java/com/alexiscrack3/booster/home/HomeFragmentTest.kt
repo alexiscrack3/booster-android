@@ -76,7 +76,6 @@ class HomeFragmentTest : BoosterTest() {
         val navController = TestNavHostController(context).apply {
             setGraph(R.navigation.home_nav_graph)
         }
-
         val fragmentScenario = launchFragmentInContainer {
             HomeFragment().also { fragment ->
                 fragment.viewLifecycleOwnerLiveData.observeForever {
@@ -95,7 +94,6 @@ class HomeFragmentTest : BoosterTest() {
         val navController = TestNavHostController(context).apply {
             setGraph(R.navigation.home_nav_graph)
         }
-
         val fragmentScenario = launchFragmentInContainer {
             HomeFragment().also { fragment ->
                 fragment.viewLifecycleOwnerLiveData.observeForever {
