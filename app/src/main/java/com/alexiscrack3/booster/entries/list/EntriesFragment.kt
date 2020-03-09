@@ -33,7 +33,7 @@ class EntriesFragment : BoosterFragment() {
         val entriesObserver = Observer<List<Entry>> { entries ->
             entriesAdapter.swap(entries)
         }
-        entriesViewModel.entriesData.observe(this, entriesObserver)
+        entriesViewModel.entriesLiveData.observe(this, entriesObserver)
     }
 
     override fun onCreateView(
@@ -48,7 +48,6 @@ class EntriesFragment : BoosterFragment() {
             false
         )
         binding.lifecycleOwner = this
-
         return binding.root
     }
 
@@ -56,11 +55,11 @@ class EntriesFragment : BoosterFragment() {
         super.onViewCreated(view, savedInstanceState)
         val title = this.getString(R.string.entries)
         (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = title
-        vocabulary_list.adapter = entriesAdapter
-//        vocabulary_list.addItemDecoration(BottomDividerItemDecoration(requireContext()))
+        entry_list.adapter = entriesAdapter
+//        entry_list.addItemDecoration(BottomDividerItemDecoration(requireContext()))
         val dividerItemDecoration = DividerItemDecoration(
             requireContext(), OrientationHelper.VERTICAL
         )
-        vocabulary_list.addItemDecoration(dividerItemDecoration)
+        entry_list.addItemDecoration(dividerItemDecoration)
     }
 }

@@ -12,7 +12,7 @@ class EntriesViewModel(
 ) : BoosterViewModel() {
     private val _entriesData = MutableLiveData<List<Entry>>()
 
-    val entriesData: LiveData<List<Entry>>
+    val entriesLiveData: LiveData<List<Entry>>
         get() = _entriesData
 
     init {
