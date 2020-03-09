@@ -13,7 +13,7 @@ class EntryDetailsViewModel(
 ) : BoosterViewModel() {
     private val _entryData = MutableLiveData<Entry>()
 
-    val headword: LiveData<String>
+    val headwordLiveData: LiveData<String>
         get() = Transformations.map(_entryData) { it.headword }
 
     fun getEntryDetails(id: String) {
