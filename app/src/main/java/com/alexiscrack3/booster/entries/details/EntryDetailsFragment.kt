@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.EntryDetailsFragmentBinding
@@ -18,14 +17,6 @@ class EntryDetailsFragment : BoosterFragment() {
 
     companion object {
         const val ENTRY_ID_KEY = "ENTRY_ID"
-
-        fun newInstance(entryId: String): Fragment {
-            return EntryDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ENTRY_ID_KEY, entryId)
-                }
-            }
-        }
     }
 
     override fun onCreateView(
