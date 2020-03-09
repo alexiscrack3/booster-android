@@ -127,6 +127,7 @@ tasks.withType(Test) {
 
 task jacocoTestReport(type: JacocoReport, dependsOn: [
     'testDebugUnitTest',
+    'createDebugCoverageReport'
 ]) {
     // Define which type of report you want to generate
     reports {
@@ -141,12 +142,13 @@ task jacocoTestReport(type: JacocoReport, dependsOn: [
         '**/BuildConfig.*',
         '**/Manifest*.*',
         '**/*Test*.*',
-        'android/**/*.*'
+        'android/**/*.*',
+        'androidx/**/*.*'
     ]
 
     // Define your source and your classes: we want to test the production code
     def mainSrc = "$project.projectDir/src/main/java"
-    def debugTree = fileTree(dir: "$project.buildDir/intermediates/javac/debug/classes", excludes: fileFilter)
+    def debugTree = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
     def dataTree = fileTree(dir: project.buildDir, includes: [
         'jacoco/testDebugUnitTest.exec',
         'outputs/code-coverage/connected/*coverage.ec'
