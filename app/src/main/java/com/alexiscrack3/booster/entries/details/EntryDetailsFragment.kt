@@ -10,9 +10,10 @@ import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.EntryDetailsFragmentBinding
 import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class EntryDetailsFragment : BoosterFragment() {
-    private val entryDetailsViewModel by inject<EntryDetailsViewModel>()
+    private val entryDetailsViewModel by inject<EntryDetailsViewModel> { parametersOf(this) }
     private lateinit var binding: EntryDetailsFragmentBinding
 
     companion object {
@@ -41,7 +42,7 @@ class EntryDetailsFragment : BoosterFragment() {
         (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = this.getString(R.string.details)
 
         arguments?.getString(ENTRY_ID_KEY)?.let { entryId ->
-            entryDetailsViewModel.getEntryDetails(entryId)
+            entryDetailsViewModel.setEntryId(entryId)
         }
     }
 }
