@@ -3,10 +3,11 @@ package com.alexiscrack3.booster.home
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
 import com.alexiscrack3.booster.databinding.HomeFragmentBinding
-import com.alexiscrack3.booster.settings.SettingsActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : BoosterFragment() {
@@ -37,12 +38,7 @@ class HomeFragment : BoosterFragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (item.itemId == R.id.settings) {
-            val intent = SettingsActivity.getIntent(requireContext())
-            startActivity(intent)
-            true
-        } else {
-            false
-        }
+        val navController = findNavController()
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 }

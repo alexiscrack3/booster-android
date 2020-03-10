@@ -23,10 +23,14 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_settings_nav_graph"
+            app:destination="@id/settings_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/playFragment"
         android:name="com.alexiscrack3.booster.play.PlayFragment"
         android:label="PlayFragment" />
     <include app:graph="@navigation/vocabulary_nav_graph" />
+    <include app:graph="@navigation/settings_nav_graph" />
 </navigation>

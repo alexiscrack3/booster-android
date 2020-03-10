@@ -11,8 +11,8 @@ class SettingsFragmentTest : BoosterTest() {
 
     @Test
     fun `default value of switch is equal to false`() {
-        val testObject = launchFragmentInContainer<SettingsFragment>()
-        testObject.onFragment {
+        val fragmentScenario = launchFragmentInContainer<SettingsFragment>()
+        fragmentScenario.onFragment {
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
             val actual = sharedPreferences.getBoolean("example_switch", false)
             assertThat(actual, equalTo(false))
