@@ -1,13 +1,15 @@
 
-# Created by https://www.gitignore.io/api/androidstudio
-# Edit at https://www.gitignore.io/?templates=androidstudio
+# Created by https://www.gitignore.io/api/AndroidStudio
+# Edit at https://www.gitignore.io/?templates=AndroidStudio
 
 ### AndroidStudio ###
 # Covers files to be ignored for android development using Android Studio.
 
 # Built application files
 *.apk
+*.aar
 *.ap_
+*.aab
 
 # Files for the ART/Dalvik VM
 *.dex
@@ -54,6 +56,7 @@ gen-external-apklibs
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
+.cxx/
 
 # NDK
 obj/
@@ -85,6 +88,8 @@ obj/
 .idea/dynamic.xml
 .idea/uiDesigner.xml
 .idea/assetWizardSettings.xml
+# Comment next line if keeping position of elements in Navigation Editor is relevant for you
+.idea/navEditor.xml
 
 # OS-specific files
 .DS_Store
@@ -132,7 +137,7 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# End of https://www.gitignore.io/api/androidstudio
+# End of https://www.gitignore.io/api/AndroidStudio
 
+# Google Services (e.g. APIs or Firebase)
 google-services.json
-
