@@ -126,8 +126,8 @@ tasks.withType(Test) {
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: [
-    'testDebugUnitTest',
-    'createDebugCoverageReport'
+    'testDebugUnitTest'
+//    , 'createDebugCoverageReport'
 ]) {
     // Define which type of report you want to generate
     reports {
