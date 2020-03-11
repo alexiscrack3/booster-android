@@ -10,10 +10,10 @@ import com.alexiscrack3.booster.models.Entry
 class EntriesViewModel(
     private val entriesRepository: EntriesRepository
 ) : BoosterViewModel() {
-    private val _entriesData = MutableLiveData<Resource<List<Entry>>>()
+    private val _entriesLiveData = MutableLiveData<Resource<List<Entry>>>(Resource.Loading())
 
     val entriesLiveData: LiveData<Resource<List<Entry>>>
-        get() = _entriesData
+        get() = _entriesLiveData
 
     init {
         getEntries()
@@ -22,12 +22,13 @@ class EntriesViewModel(
     private fun getEntries() {
         entriesRepository.getEntries()
             .doOnSubscribe {
-                _entriesData.postValue(Resource.Loading())
+                _entriesLiveData.postValue(Resource.Loading())
             }
             .subscribe({ entries ->
-            _entriesData.postValue(Resource.Success(entries))
-        }, {
-            _entriesData.postValue(Resource.Failure(it))
-        }).autoDispose()
+                _entriesLiveData.postValue(Resource.Success(entries))
+            }, {
+                _entriesLiveData.postValue(Resource.Failure(it))
+            })
+            .autoDispose()
     }
 }

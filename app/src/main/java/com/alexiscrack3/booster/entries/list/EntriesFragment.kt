@@ -35,10 +35,8 @@ class EntriesFragment : BoosterFragment() {
         val entriesObserver = Observer<Resource<List<Entry>>> { resource ->
             when (resource) {
                 is Resource.Success -> entriesAdapter.swap(resource.value)
-                is Resource.Loading -> Timber.d("Loading")
                 is Resource.Failure -> Timber.e(resource.error)
             }
-
         }
         entriesViewModel.entriesLiveData.observe(this, entriesObserver)
     }
@@ -53,8 +51,10 @@ class EntriesFragment : BoosterFragment() {
             R.layout.fragment_entries,
             container,
             false
-        )
-        binding.lifecycleOwner = this
+        ).apply {
+            lifecycleOwner = this@EntriesFragment
+            viewModel = entriesViewModel
+        }
         return binding.root
     }
 
