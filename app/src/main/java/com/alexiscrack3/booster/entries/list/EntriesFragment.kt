@@ -13,11 +13,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.OrientationHelper
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
+import com.alexiscrack3.booster.Resource
 import com.alexiscrack3.booster.databinding.EntriesFragmentBinding
 import com.alexiscrack3.booster.entries.details.EntryDetailsFragment
 import com.alexiscrack3.booster.models.Entry
 import kotlinx.android.synthetic.main.fragment_entries.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class EntriesFragment : BoosterFragment() {
     private val entriesViewModel by viewModel<EntriesViewModel>()
@@ -30,8 +32,13 @@ class EntriesFragment : BoosterFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val entriesObserver = Observer<List<Entry>> { entries ->
-            entriesAdapter.swap(entries)
+        val entriesObserver = Observer<Resource<List<Entry>>> { resource ->
+            when (resource) {
+                is Resource.Success -> entriesAdapter.swap(resource.value)
+                is Resource.Loading -> Timber.d("Loading")
+                is Resource.Failure -> Timber.e(resource.error)
+            }
+
         }
         entriesViewModel.entriesLiveData.observe(this, entriesObserver)
     }
