@@ -2,7 +2,7 @@ package com.alexiscrack3.booster.databindings
 
 import android.view.View
 import androidx.databinding.BindingAdapter
-import com.alexiscrack3.booster.Resource
+import com.alexiscrack3.booster.api.Resource
 
 @BindingAdapter("app:visibilityObserver")
 fun setVisibilityObserver(view: View, resource: Resource<*>) {

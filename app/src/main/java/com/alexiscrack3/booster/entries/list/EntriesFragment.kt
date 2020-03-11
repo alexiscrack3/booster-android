@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.OrientationHelper
 import com.alexiscrack3.booster.BoosterFragment
 import com.alexiscrack3.booster.R
-import com.alexiscrack3.booster.Resource
+import com.alexiscrack3.booster.api.Resource
 import com.alexiscrack3.booster.databinding.EntriesFragmentBinding
 import com.alexiscrack3.booster.entries.details.EntryDetailsFragment
 import com.alexiscrack3.booster.models.Entry

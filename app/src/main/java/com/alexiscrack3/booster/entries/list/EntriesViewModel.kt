@@ -3,7 +3,7 @@ package com.alexiscrack3.booster.entries.list
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.alexiscrack3.booster.BoosterViewModel
-import com.alexiscrack3.booster.Resource
+import com.alexiscrack3.booster.api.Resource
 import com.alexiscrack3.booster.entries.EntriesRepository
 import com.alexiscrack3.booster.models.Entry
 

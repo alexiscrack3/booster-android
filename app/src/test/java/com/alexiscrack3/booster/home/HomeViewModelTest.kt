@@ -2,6 +2,7 @@ package com.alexiscrack3.booster.home
 
 import android.view.View
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.alexiscrack3.booster.R
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
@@ -15,7 +16,7 @@ class HomeViewModelTest {
         val navController = mock<NavController>()
         val view = mock<View>()
         whenever(view.getTag(androidx.navigation.R.id.nav_controller_view_tag)).thenReturn(navController)
-//        whenever(view.findNavController()).thenReturn(navController)
+        whenever(view.findNavController()).thenReturn(navController)
 
         val testObject = HomeViewModel()
         testObject.onEntriesClick(view)
@@ -28,7 +29,7 @@ class HomeViewModelTest {
         val navController = mock<NavController>()
         val view = mock<View>()
         whenever(view.getTag(androidx.navigation.R.id.nav_controller_view_tag)).thenReturn(navController)
-//        whenever(view.findNavController()).thenReturn(navController)
+        whenever(view.findNavController()).thenReturn(navController)
 
         val testObject = HomeViewModel()
         testObject.onPlayClick(view)

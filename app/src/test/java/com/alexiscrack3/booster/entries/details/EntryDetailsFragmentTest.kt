@@ -16,7 +16,6 @@ import org.mockito.Mockito
 class EntryDetailsFragmentTest : BoosterTest() {
     private val entryDetailsViewModel by inject<EntryDetailsViewModel>()
 
-    // required to make your Mock via Koin
     @get:Rule
     val mockProvider = MockProviderRule.create { clazz ->
         Mockito.mock(clazz.java)

@@ -7,6 +7,7 @@ import androidx.navigation.testing.TestNavHostController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alexiscrack3.booster.BoosterTest
 import com.alexiscrack3.booster.R
+import com.alexiscrack3.booster.api.Resource
 import com.alexiscrack3.booster.models.Entry
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
@@ -21,7 +22,7 @@ import org.koin.test.mock.declareMock
 import org.mockito.Mockito
 
 class EntriesFragmentTest: BoosterTest() {
-    private val mEntriesLiveData = MutableLiveData<List<Entry>>()
+    private val mEntriesLiveData = MutableLiveData<Resource<List<Entry>>>(Resource.Loading())
 
     // required to make your Mock via Koin
     @get:Rule
@@ -50,7 +51,7 @@ class EntriesFragmentTest: BoosterTest() {
             }
         }
         fragmentScenario.onFragment { fragment ->
-            mEntriesLiveData.value = listOf(mock())
+            mEntriesLiveData.value = Resource.Success(listOf(mock()))
             
             val linearLayoutManager = fragment.entry_list.layoutManager as LinearLayoutManager
             val viewHolder = linearLayoutManager.getChildAt(0)
