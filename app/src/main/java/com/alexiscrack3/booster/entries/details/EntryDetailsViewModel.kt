@@ -1,13 +1,16 @@
 package com.alexiscrack3.booster.entries.details
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.Transformations
 import com.alexiscrack3.booster.BoosterViewModel
-import com.alexiscrack3.booster.models.Entry
 import com.alexiscrack3.booster.entries.EntriesRepository
+import com.alexiscrack3.booster.models.Entry
 import timber.log.Timber
 
 class EntryDetailsViewModel(
-    private val state: SavedStateHandle,
+    state: SavedStateHandle,
     private val entriesRepository: EntriesRepository
 ) : BoosterViewModel() {
     private val _entryData = MutableLiveData<Entry>()
@@ -16,11 +19,8 @@ class EntryDetailsViewModel(
         get() = Transformations.map(_entryData) { it.headword }
 
     init {
-        val id = getEntryId()
-        Timber.tag("TESTING").d("THIS IS ID = $id")
-        if (id != null) {
-            getEntryDetails(id)
-        }
+        val entryId = state.get<String>(ENTRY_ID_KEY) ?: throw IllegalArgumentException("missing entry id")
+        getEntryDetails(entryId)
     }
 
     fun getEntryDetails(id: String) {
@@ -31,13 +31,7 @@ class EntryDetailsViewModel(
         }).autoDispose()
     }
 
-    fun getEntryId() = state.get<String>(ENTRY_ID_KEY)
-
-    fun setEntryId(entryId: String) {
-        state.set(ENTRY_ID_KEY, entryId)
-    }
-
     companion object {
-        private const val ENTRY_ID_KEY = "ENTRY_ID"
+        const val ENTRY_ID_KEY = "ENTRY_ID"
     }
 }

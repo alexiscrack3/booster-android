@@ -5,8 +5,9 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val entryDetailsModule = module {
-    viewModel { (owner: SavedStateRegistryOwner) ->
+    viewModel { (entryId: String, owner: SavedStateRegistryOwner) ->
         EntryDetailsViewModelFactory(
+            entryId = entryId,
             entriesRepository = get(),
             owner = owner
         ).create(EntryDetailsViewModel::class.java)

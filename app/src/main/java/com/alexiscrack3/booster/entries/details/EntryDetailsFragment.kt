@@ -13,7 +13,12 @@ import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
 class EntryDetailsFragment : BoosterFragment() {
-    private val entryDetailsViewModel by inject<EntryDetailsViewModel> { parametersOf(this) }
+    private val entryId by lazy {
+        arguments?.getString(ENTRY_ID_KEY) ?: throw IllegalArgumentException("missing entry id")
+    }
+    private val entryDetailsViewModel by inject<EntryDetailsViewModel> {
+        parametersOf(entryId, this)
+    }
     private lateinit var binding: EntryDetailsFragmentBinding
 
     companion object {
@@ -40,9 +45,5 @@ class EntryDetailsFragment : BoosterFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = this.getString(R.string.details)
-
-        arguments?.getString(ENTRY_ID_KEY)?.let { entryId ->
-            entryDetailsViewModel.setEntryId(entryId)
-        }
     }
 }
