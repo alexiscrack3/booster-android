@@ -16,7 +16,10 @@ class EntryDetailsViewModel(
     private val _entryData = MutableLiveData<Entry>()
 
     val headwordLiveData: LiveData<String>
-        get() = Transformations.map(_entryData) { it.headword }
+        get() = Transformations.map(_entryData) { it.headword.toLowerCase() }
+
+    val categoryLiveData: LiveData<String>
+        get() = Transformations.map(_entryData) { it.category.name.toLowerCase() }
 
     init {
         val entryId = state.get<String>(ENTRY_ID_KEY) ?: throw IllegalArgumentException("missing entry id")

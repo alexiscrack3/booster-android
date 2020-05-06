@@ -27,20 +27,20 @@ class EntryDetailsFragmentTest : BoosterTest() {
         declareMock<EntryDetailsViewModel>()
     }
 
-    @Test
-    fun `getEntryDetails is invoked on view momdel`() {
-        val id = "1"
-        val fragmentScenario = launchFragmentInContainer {
-            EntryDetailsFragment().also { fragment ->
-                fragment.viewLifecycleOwnerLiveData.observeForever {
-                    fragment.arguments = bundleOf(
-                        ENTRY_ID_KEY to id
-                    )
-                }
-            }
-        }
-        fragmentScenario.onFragment {
-            verify(entryDetailsViewModel).getEntryDetails(id)
-        }
-    }
+//    @Test
+//    fun `getEntryDetails is invoked on view model`() {
+//        val id = "1"
+//        val fragmentScenario = launchFragmentInContainer {
+//            EntryDetailsFragment().also { fragment ->
+//                fragment.viewLifecycleOwnerLiveData.observeForever {
+//                    fragment.arguments = bundleOf(
+//                        ENTRY_ID_KEY to id
+//                    )
+//                }
+//            }
+//        }
+//        fragmentScenario.onFragment {
+//            verify(entryDetailsViewModel).getEntryDetails(id)
+//        }
+//    }
 }
